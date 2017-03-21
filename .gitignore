@@ -4,9 +4,6 @@
 node_modules/
 platforms/
 plugins/
-.bowerrc
 .editorconfig
 hooks
 resources
-www/lib/ionic
-www/lib

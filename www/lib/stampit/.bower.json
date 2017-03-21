@@ -1,0 +1,34 @@
+{
+  "name": "stampit",
+  "homepage": "https://github.com/stampit-org/stampit-bower",
+  "description": "OOP is better with stamps: Composable object factories",
+  "main": "stampit.js",
+  "keywords": [
+    "object",
+    "prototype",
+    "object oriented",
+    "browser",
+    "inheritance",
+    "oo",
+    "node",
+    "factory",
+    "class"
+  ],
+  "ignore": [
+    "**/.*",
+    "build.sh",
+    "package.json",
+    "publish.sh"
+  ],
+  "version": "3.1.2",
+  "_release": "3.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.1.2",
+    "commit": "9699884f56c29d3d25783b39ccc23a0397e94744"
+  },
+  "_source": "https://github.com/stampit-org/stampit-bower.git",
+  "_target": "^3.1.2",
+  "_originalSource": "stampit",
+  "_direct": true
+}

@@ -1,0 +1,23 @@
+{
+  "name": "stampit",
+  "homepage": "https://github.com/stampit-org/stampit-bower",
+  "description": "OOP is better with stamps: Composable object factories",
+  "main": "stampit.js",
+  "keywords": [
+    "object",
+    "prototype",
+    "object oriented",
+    "browser",
+    "inheritance",
+    "oo",
+    "node",
+    "factory",
+    "class"
+  ],
+  "ignore": [
+    "**/.*",
+    "build.sh",
+    "package.json",
+    "publish.sh"
+  ]
+}
