@@ -1,0 +1,11 @@
+<div class="slot-container"
+	hm-dragstart="slot.onDragStart($event)"
+	hm-drag="slot.onDrag($event)"
+	hm-dragend="slot.onDragEnd($event)"
+	hm-tap="slot.onTap($event)">
+	<div class="slot-content">
+		<div class="slot-item" ng-repeat="item in slot.items track by $index" data-index="{{$index}}">
+			<span data-ng-bind="item.label" data-index="{{$index}}"></span>
+		</div>
+	</div>
+</div>

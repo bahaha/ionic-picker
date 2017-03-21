@@ -1,0 +1,22 @@
+<div class="picker">
+	<div class="picker-mask"
+		ng-class="{ 'is-active': state.isOpen }"
+		ng-click="cancel($event)"
+		data-tap-disabled="true"></div>
+	<section class="picker-menu picker-menu-slide-bottom"
+		ng-class="{ 'is-active': state.isOpen }">
+		<nav class="picker-menu-fn" data-tap-disabled="true">
+			<a class="picker-fn picker-fn-cancel" ng-click="cancel($event)">cancel</a>
+			<a class="picker-fn picker-fn-submit" ng-click="submit()">submit</a>
+			<div class="picker-title">title</div>
+		</nav>
+		<div class="slot-wrapper">
+			<div class="picker-bar"></div>
+			<div class="slot-inner">
+				<div class="slot-row">
+					<picker-slot data-uuid="state.uuid" data-index="{{$index}}" data-slot="slot" ng-repeat="slot in slots"></picker-slot>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

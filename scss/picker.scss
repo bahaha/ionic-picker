@@ -1,0 +1,166 @@
+$picker_background: #f1f1f1;
+$line_style: 1px solid #ccc;
+$cancel_color: #ccc;
+$submit_color: #157efd;
+$function_button_height: 45px;
+$slot_total_height: 200px;
+$picker_height: $slot_total_height + $function_button_height;
+$slot_item_height: 40px;
+$select_bar_line_height: 2px;
+$select_bar_line_color: #999;
+$select_bar_background: rgba(30, 30, 30, 0.2);
+
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+@mixin appearance($appearance...) {
+  -moz-appearance:    $appearance;
+  -o-appearance:      $appearance;
+  -webkit-appearance: $appearance;
+  appearance:         $appearance;
+}
+@mixin transform($transform...) {
+  -moz-transform:    $transform;
+  -o-transform:      $transform;
+  -webkit-transform: $transform;
+  transform:         $transform;
+}
+
+.picker .picker-menu {
+	position: fixed;
+	z-index: 200;
+	background: $picker_background;
+	@include transition(transform 0.3s);
+
+	vertical-align: middle;
+	text-align: center;
+	overflow-x: scroll;
+	font-size: 18px !important;
+	width: 100%;
+	bottom: $picker_height;
+
+	@include transform(
+		translate3d(0px, 3 * $picker_height, 0px));
+	&.is-active {
+		@include transform(
+			translate3d(0px, $picker_height, 0px));
+	}
+
+	.picker-title {
+		vertical-align: middle;
+		text-align: center;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		padding: 0px 5px 0px 5px;
+		height: $function_button_height;
+		line-height: $function_button_height;
+	}
+}
+
+// the function menu
+.picker .picker-menu-fn {
+	width: 100%;
+	border-bottom: $line_style;
+
+	&:hover {
+		outline: none;
+	}
+
+	.picker-fn-cancel {
+		color: $cancel_color;
+		float: left;
+	}
+	.picker-fn-submit {
+		color: $submit_color;
+		float: right;
+	}
+
+	.picker-fn {
+		width: 85px;
+		border: none;
+		box-shadow: none;
+		border-radius: none;
+		cursor: pointer;
+		height: $function_button_height;
+		line-height: $function_button_height;
+		@include appearance(none);
+	}
+}
+
+.picker .picker-mask {
+	position: fixed;
+	z-index: 199;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	background-color: #000;
+	opacity: 0;
+	@include transition(opacity 0.1s, width 0s 0.1s, height 0s 0.1s);
+
+	&.is-active {
+		width: 100%;
+		height: 100%;
+		opacity: 0.7;
+		@include transition(opacity 0.1s);
+	}
+}
+
+.picker .slot-wrapper {
+	height: $slot_total_height;
+	line-height: $slot_total_height;
+	padding: 0px;
+
+	.slot-inner {
+		overflow: hidden;
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		position: relative;
+		top: -$slot_item_height - 2 * $select_bar_line_height;
+
+		.slot-row {
+			display: table-row;
+		}
+
+		.slot-container {
+			display: table-cell;
+			line-height: $slot_total_height;
+
+			&:first-child:last-child{
+				text-align: left;
+			}
+
+			.slot-content {
+				height: $slot_total_height;
+			}
+
+			.slot-item {
+				height: $slot_item_height;
+				line-height: $slot_item_height;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+
+	.picker-bar {
+		border-top: $select_bar_line_height solid $select_bar_line_color;
+		border-bottom: $select_bar_line_height solid $select_bar_line_color;
+  	background-color: $select_bar_background;
+  	position: relative;
+  	line-height: $slot_item_height + 2 * $select_bar_line_height;
+  	height: $slot_item_height + 2 * $select_bar_line_height;
+  	top: (2 * $slot_item_height) - $select_bar_line_height;
+  	max-width: 100%;
+  	margin: 0 auto;
+  	pointer-events:none;
+  	z-index: 999;
+	}
+}
