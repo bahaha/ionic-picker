@@ -337,8 +337,8 @@ var stamps = (function(stampit) {
 	}
 	function normalize(item) {
 		return angular.isObject(item) ? {
-			label: item.label || '',
-			value: item.value || ''
+			label: angular.isUndefined(item.label) ? '' : item.label,
+			value: angular.isUndefined(item.value) ? '' : item.value
 		} : {
 			label: item,
 			value: item
@@ -431,6 +431,7 @@ var stamps = (function(stampit) {
 			this.itemIndex = itemIndex;
 			this.setY(nextY);
 			this.onChange.call(this, this.itemIndex, this.getItem(this.itemIndex));
+			$event.preventDefault();
 		}
 	};
 
