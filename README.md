@@ -1,5 +1,5 @@
-# AngularPicker
-html5 picker
+# ionic-picker
+html5 picker with ionic1
 
 `npm install`  
 
